@@ -5,4 +5,4 @@ const changeTextSize = event => {
     textEl.setAttribute("style", `font-size: ${event.target.value}px`);
 };
 
-inputEl.addEventListener("change", changeTextSize);
+inputEl.addEventListener("input", changeTextSize);

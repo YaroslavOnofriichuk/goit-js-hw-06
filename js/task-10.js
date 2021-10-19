@@ -8,18 +8,18 @@ function getRandomHexColor() {
 };
 
 function createBoxes(amount) {
-  let arr = [];
-  
+  let boxesArray = [];
+
   for (let i = 1; i <= amount; i += 1) {
     const newBoxes = document.createElement("div");
-    newBoxes.style.width = `${20 + (i * 10)}px`;
-    newBoxes.style.height = `${20 + (i * 10)}px`;
+    newBoxes.style.width = boxesEl.lastElementChild === null ? `${20 + (i * 10)}px` : `${Number(boxesEl.lastElementChild.style.width.slice(0, boxesEl.lastElementChild.style.width.length - 2)) + (i * 10)}px`;
+    newBoxes.style.height = boxesEl.lastElementChild === null ? `${20 + (i * 10)}px` : `${Number(boxesEl.lastElementChild.style.width.slice(0, boxesEl.lastElementChild.style.width.length - 2)) + (i * 10)}px`;
     newBoxes.style.backgroundColor = getRandomHexColor();
 
-    arr.push(newBoxes);
-  };
+    boxesArray.push(newBoxes);
+  }
 
-  boxesEl.append(...arr);
+  boxesEl.append(...boxesArray);
 };
 
 function destroyBoxes() {
